@@ -8,6 +8,7 @@ from bit.base58 import BASE58_ALPHABET, b58encode_check
 from bit.crypto import ECPrivateKey, ripemd160_sha256
 from bit.format import bytes_to_wif, public_key_to_address
 
+from bit.network.coins import *
 
 def generate_key_address_pair():  # pragma: no cover
     private_key = ECPrivateKey()
@@ -71,7 +72,7 @@ def generate_matching_address(prefix, cores='all'):  # pragma: no cover
           'Address: {}'.format(bytes_to_wif(private_key), address))
 
 
-def generate_key_address_pairs(prefix, counter, match, queue):  # pragma: no cover
+def generate_key_address_pairs(prefix, counter, match, queue, coin=Bitcoin):  # pragma: no cover
 
     context = Context()
 
@@ -84,7 +85,7 @@ def generate_key_address_pairs(prefix, counter, match, queue):  # pragma: no cov
 
         private_key = ECPrivateKey(context=context)
         address = b58encode_check(
-            b'\x00' + ripemd160_sha256(private_key.public_key.format())
+            coin.MAIN_PUBKEY_HASH + ripemd160_sha256(private_key.public_key.format())
         )
 
         if address.startswith(prefix):
