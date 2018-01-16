@@ -1,35 +1,29 @@
 
 class Coin:
 
-    MAIN_PUBKEY_HASH = None
-    MAIN_SCRIPT_HASH = [None]
-    MAIN_PRIVATE_KEY = None
+    MAIN_PUBKEY_HASH = b'\x00'
+    MAIN_SCRIPT_HASH = [b'\x05']
+    MAIN_PRIVATE_KEY = b'\x80'
     MAIN_BIP32_PUBKEY = b'\x04\x88\xb2\x1e'
     MAIN_BIP32_PRIVKEY = b'\x04\x88\xad\xe4'
-    TEST_PUBKEY_HASH = None
-    TEST_SCRIPT_HASH = None
-    TEST_PRIVATE_KEY = None
+    TEST_PUBKEY_HASH = b'\x6f'
+    TEST_SCRIPT_HASH = b'\xc4'
+    TEST_PRIVATE_KEY = b'\xef'
     TEST_BIP32_PUBKEY = b'\x045\x87\xcf'
     TEST_BIP32_PRIVKEY = b'\x045\x83\x94'
     PUBLIC_KEY_UNCOMPRESSED = b'\x04'
     PUBLIC_KEY_COMPRESSED_EVEN_Y = b'\x02'
     PUBLIC_KEY_COMPRESSED_ODD_Y = b'\x03'
     PRIVATE_KEY_COMPRESSED_PUBKEY = b'\x01'
-    RPC_PORT = None
+    RPC_PORT = 8332
 
 class Bitcoin(Coin):
 
     COIN_NAME = "Bitcoin"
     COIN_SHORT_NAME = "BTC"
-    MAIN_PUBKEY_HASH = b'\x00'
-    MAIN_SCRIPT_HASH = [b'\x05']
-    MAIN_PRIVATE_KEY = b'\x80'
-    TEST_PUBKEY_HASH = b'\x6f'
-    TEST_SCRIPT_HASH = b'\xc4'
-    TEST_PRIVATE_KEY = b'\xef'
-    RPC_PORT = 8332
 
 class Litecoin(Coin):
+
     COIN_NAME = "Litecoin"
     COIN_SHORT_NAME = "LTC"
     MAIN_PUBKEY_HASH = b'\x30'
@@ -46,12 +40,10 @@ class Rubycoin(Coin):
     MAIN_PUBKEY_HASH = b'\x3c'
     MAIN_SCRIPT_HASH = [b'\x55']
     MAIN_PRIVATE_KEY = b'\xbc'
-    TEST_PUBKEY_HASH = b'\x6f'
-    TEST_SCRIPT_HASH = b'\xc4'
-    TEST_PRIVATE_KEY = b'\xef'
     RPC_PORT = 5937
 
 class Blackcoin(Coin):
+
     COIN_NAME = "Blackcoin"
     COIN_SHORT_NAME = "BLK"
     MAIN_PUBKEY_HASH = b'\x19'
@@ -60,6 +52,7 @@ class Blackcoin(Coin):
     RPC_PORT = 15715
 
 class Komodo(Coin):
+
     COIN_NAME = "Komodo"
     COIN_SHORT_NAME = "KMD"
     MAIN_PUBKEY_HASH = b'\x3C'
